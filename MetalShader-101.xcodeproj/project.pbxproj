@@ -11,6 +11,10 @@
 		C9A75B262AFDF8CD00ADE616 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A75B252AFDF8CD00ADE616 /* ContentView.swift */; };
 		C9A75B282AFDF8CE00ADE616 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9A75B272AFDF8CE00ADE616 /* Assets.xcassets */; };
 		C9A75B2B2AFDF8CE00ADE616 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9A75B2A2AFDF8CE00ADE616 /* Preview Assets.xcassets */; };
+		C9A75B322AFDFA0A00ADE616 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = C9A75B312AFDFA0A00ADE616 /* Shaders.metal */; };
+		C9ADBDB62B01F4A500366BA6 /* hsv_header.metal in Sources */ = {isa = PBXBuildFile; fileRef = C9ADBDB52B01F4A500366BA6 /* hsv_header.metal */; };
+		C9ADBDB82B01F50A00366BA6 /* hsv.metal in Sources */ = {isa = PBXBuildFile; fileRef = C9ADBDB72B01F50A00366BA6 /* hsv.metal */; };
+		C9ADBDBA2B01F5F000366BA6 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ADBDB92B01F5F000366BA6 /* model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		C9A75B252AFDF8CD00ADE616 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C9A75B272AFDF8CE00ADE616 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9A75B2A2AFDF8CE00ADE616 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C9A75B312AFDFA0A00ADE616 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		C9ADBDB52B01F4A500366BA6 /* hsv_header.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = hsv_header.metal; sourceTree = "<group>"; };
+		C9ADBDB72B01F50A00366BA6 /* hsv.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = hsv.metal; sourceTree = "<group>"; };
+		C9ADBDB92B01F5F000366BA6 /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +61,10 @@
 			children = (
 				C9A75B232AFDF8CD00ADE616 /* MetalShader_101App.swift */,
 				C9A75B252AFDF8CD00ADE616 /* ContentView.swift */,
+				C9ADBDB92B01F5F000366BA6 /* model.swift */,
+				C9A75B312AFDFA0A00ADE616 /* Shaders.metal */,
+				C9ADBDB52B01F4A500366BA6 /* hsv_header.metal */,
+				C9ADBDB72B01F50A00366BA6 /* hsv.metal */,
 				C9A75B272AFDF8CE00ADE616 /* Assets.xcassets */,
 				C9A75B292AFDF8CE00ADE616 /* Preview Content */,
 			);
@@ -137,7 +149,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9A75B322AFDFA0A00ADE616 /* Shaders.metal in Sources */,
+				C9ADBDBA2B01F5F000366BA6 /* model.swift in Sources */,
+				C9ADBDB82B01F50A00366BA6 /* hsv.metal in Sources */,
 				C9A75B262AFDF8CD00ADE616 /* ContentView.swift in Sources */,
+				C9ADBDB62B01F4A500366BA6 /* hsv_header.metal in Sources */,
 				C9A75B242AFDF8CD00ADE616 /* MetalShader_101App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
