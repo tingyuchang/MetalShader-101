@@ -100,14 +100,14 @@ float normpdf(float x, float sigma) {
 }
 
 // https://www.shadertoy.com/view/XdfGDH
-[[ stitchable ]] half4 gaussianBlur_2(float2 pos, SwiftUI::Layer layer, float2 size, float blur) {
-    const int mSize = 11;
+[[ stitchable ]] half4 gaussianBlur_2(float2 pos, SwiftUI::Layer layer, float2 size, float radius) {
+    const int mSize = 39;
     const int kSize = (mSize-1)/2;
     float k[mSize];
     half3 final_colour = half3(0.0);
     
     //create the 1-D kernel
-    float sigma = 3.0;
+    float sigma = radius;
     float Z = 0.0;
     for (int j = 0; j <= kSize; ++j) {
         k[kSize+j] = k[kSize-j] = normpdf(float(j), sigma);

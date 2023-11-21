@@ -20,7 +20,7 @@ struct ContentView: View {
     
     // gradient blur
     @State private var gradientBlur1Radius: CGFloat = 0
-    @State private var gradientBlur2Radius: CGFloat = 0
+    @State private var gradientBlur2Radius: CGFloat = 1
     @State private var gradientBlur3Radius: CGFloat = 1
     @State private var gradientBlur3_2Radius: CGFloat = 1
     @State private var gradientBlur4Radius: CGFloat = 20
@@ -313,7 +313,7 @@ extension ContentView {
     
     @ViewBuilder
     func gradientBlurView2() -> some View {
-        HStack {
+        VStack {
             Image(.snow)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -325,6 +325,7 @@ extension ContentView {
                             .float(gradientBlur2Radius)
                         ), maxSampleOffset: .zero)
                 }
+            Slider(value: $gradientBlur2Radius, in: 1...15)
         }
     }
     
