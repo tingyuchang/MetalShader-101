@@ -15,6 +15,9 @@
 		C9ADBDB62B01F4A500366BA6 /* hsv_header.metal in Sources */ = {isa = PBXBuildFile; fileRef = C9ADBDB52B01F4A500366BA6 /* hsv_header.metal */; };
 		C9ADBDB82B01F50A00366BA6 /* hsv.metal in Sources */ = {isa = PBXBuildFile; fileRef = C9ADBDB72B01F50A00366BA6 /* hsv.metal */; };
 		C9ADBDBA2B01F5F000366BA6 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ADBDB92B01F5F000366BA6 /* model.swift */; };
+		C9ADBDBC2B01FD9400366BA6 /* GaussianBlur.metal in Sources */ = {isa = PBXBuildFile; fileRef = C9ADBDBB2B01FD9400366BA6 /* GaussianBlur.metal */; };
+		C9ADBDBE2B020CA200366BA6 /* unused.metal in Sources */ = {isa = PBXBuildFile; fileRef = C9ADBDBD2B020CA200366BA6 /* unused.metal */; };
+		C9AEF21E2B0B020D00647EDE /* Passthrough.metal in Sources */ = {isa = PBXBuildFile; fileRef = C9AEF21D2B0B020D00647EDE /* Passthrough.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,9 @@
 		C9ADBDB52B01F4A500366BA6 /* hsv_header.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = hsv_header.metal; sourceTree = "<group>"; };
 		C9ADBDB72B01F50A00366BA6 /* hsv.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = hsv.metal; sourceTree = "<group>"; };
 		C9ADBDB92B01F5F000366BA6 /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
+		C9ADBDBB2B01FD9400366BA6 /* GaussianBlur.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = GaussianBlur.metal; sourceTree = "<group>"; };
+		C9ADBDBD2B020CA200366BA6 /* unused.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = unused.metal; sourceTree = "<group>"; };
+		C9AEF21D2B0B020D00647EDE /* Passthrough.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Passthrough.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,12 +65,16 @@
 		C9A75B222AFDF8CD00ADE616 /* MetalShader-101 */ = {
 			isa = PBXGroup;
 			children = (
+				C9AEF1DF2B0AFAA900647EDE /* Shaders */,
 				C9A75B232AFDF8CD00ADE616 /* MetalShader_101App.swift */,
 				C9A75B252AFDF8CD00ADE616 /* ContentView.swift */,
 				C9ADBDB92B01F5F000366BA6 /* model.swift */,
 				C9A75B312AFDFA0A00ADE616 /* Shaders.metal */,
+				C9ADBDBB2B01FD9400366BA6 /* GaussianBlur.metal */,
+				C9AEF21D2B0B020D00647EDE /* Passthrough.metal */,
 				C9ADBDB52B01F4A500366BA6 /* hsv_header.metal */,
 				C9ADBDB72B01F50A00366BA6 /* hsv.metal */,
+				C9AEF21F2B0C490E00647EDE /* not_finished */,
 				C9A75B272AFDF8CE00ADE616 /* Assets.xcassets */,
 				C9A75B292AFDF8CE00ADE616 /* Preview Content */,
 			);
@@ -77,6 +87,21 @@
 				C9A75B2A2AFDF8CE00ADE616 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C9AEF1DF2B0AFAA900647EDE /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
+		C9AEF21F2B0C490E00647EDE /* not_finished */ = {
+			isa = PBXGroup;
+			children = (
+				C9ADBDBD2B020CA200366BA6 /* unused.metal */,
+			);
+			path = not_finished;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,10 +175,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9A75B322AFDFA0A00ADE616 /* Shaders.metal in Sources */,
+				C9ADBDBE2B020CA200366BA6 /* unused.metal in Sources */,
 				C9ADBDBA2B01F5F000366BA6 /* model.swift in Sources */,
+				C9AEF21E2B0B020D00647EDE /* Passthrough.metal in Sources */,
 				C9ADBDB82B01F50A00366BA6 /* hsv.metal in Sources */,
 				C9A75B262AFDF8CD00ADE616 /* ContentView.swift in Sources */,
 				C9ADBDB62B01F4A500366BA6 /* hsv_header.metal in Sources */,
+				C9ADBDBC2B01FD9400366BA6 /* GaussianBlur.metal in Sources */,
 				C9A75B242AFDF8CD00ADE616 /* MetalShader_101App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
