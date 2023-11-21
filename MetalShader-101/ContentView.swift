@@ -24,6 +24,7 @@ struct ContentView: View {
     @State private var gradientBlur3Radius: CGFloat = 1
     @State private var gradientBlur3_2Radius: CGFloat = 1
     @State private var gradientBlur4Radius: CGFloat = 20
+    @State private var gradientBlur5Radius: CGFloat = 1
     
     var body: some View {
         NavigationStack {
@@ -104,6 +105,12 @@ struct ContentView: View {
                     gradientBlurView4()
                 } label: {
                     Text("Gradient Blur 4")
+                }
+                
+                NavigationLink {
+                    gradientBlurView5()
+                } label: {
+                    Text("Motion Blur")
                 }
                 
             }
@@ -335,7 +342,7 @@ extension ContentView {
                             .float(gradientBlur3Radius)
                         ), maxSampleOffset: .zero)
                 }
-            Slider(value: $gradientBlur3Radius, in: 1...10)
+            Slider(value: $gradientBlur3Radius, in: 1...30)
         }
     }
     
@@ -353,7 +360,7 @@ extension ContentView {
                             .float(gradientBlur3_2Radius)
                         ), maxSampleOffset: .zero)
                 }
-            Slider(value: $gradientBlur3_2Radius, in: 1...10)
+            Slider(value: $gradientBlur3_2Radius, in: 1...30)
         }
     }
     
@@ -372,6 +379,24 @@ extension ContentView {
                             .float(gradientBlur4Radius)
                         ), maxSampleOffset: .zero)
                 }
+        }
+    }
+    
+    @ViewBuilder
+    func gradientBlurView5() -> some View {
+        VStack {
+            Image(.snow)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(height: 600)
+                .visualEffect { content, geometryProxy in
+                    content
+                        .layerEffect(ShaderLibrary.gaussianBlur_5(
+                            .float2(geometryProxy.size),
+                            .float(gradientBlur5Radius)
+                        ), maxSampleOffset: .zero)
+                }
+            Slider(value: $gradientBlur5Radius, in: 1...30)
         }
     }
 }

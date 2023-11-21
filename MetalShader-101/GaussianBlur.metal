@@ -140,33 +140,37 @@ float SCurve (float x) {
 
 // https://www.shadertoy.com/view/Mtl3Rj
 [[ stitchable ]] half4 gaussianBlur_3(float2 pos, SwiftUI::Layer layer, float2 size, float radius) {
-    float2 uv = pos/size;
-    half4 A = half4(0.0);
-    half4 C = half4(0.0);
+    if (radius >= 1.0) {
+        float2 uv = size/pos;
+        half4 A = half4(0.0);
+        half4 C = half4(0.0);
 
-    float width = 1.0 / uv.x;
+        float width = 1.0 / uv.x;
 
-    float divisor = 0.0;
-    float weight = 0.0;
-    
-    float radiusMultiplier = 1.0 / radius;
-    
-    for (float x = -radius; x <= radius; x++) {
-        A = layer.sample(pos + float2(x * width, 0.0));
+        float divisor = 0.0;
+        float weight = 0.0;
         
-        weight = SCurve(1.0 - (abs(x) * radiusMultiplier));
+        float radiusMultiplier = 1.0 / radius;
         
-        C += A * weight;
-        
-        divisor += weight;
+        for (float x = -radius; x <= radius; x++) {
+            A = layer.sample(pos + float2(x * width, 0.0));
+            
+            weight = SCurve(1.0 - (abs(x) * radiusMultiplier));
+            
+            C += A * weight;
+            
+            divisor += weight;
+        }
+
+        return half4(C.r / divisor, C.g / divisor, C.b / divisor, 1.0);
     }
-
-    return half4(C.r / divisor, C.g / divisor, C.b / divisor, 1.0);
+    
+    return layer.sample(pos);
 }
 
 // https://www.shadertoy.com/view/Mtl3Rj
 [[ stitchable ]] half4 gaussianBlur_3_2(float2 pos, SwiftUI::Layer layer, float2 size, float radius) {
-    float2 uv = pos/size;
+    float2 uv = size/pos;
     half4 A = half4(0.0);
     half4 C = half4(0.0);
 
@@ -219,4 +223,35 @@ float SCurve (float x) {
     }
     
     return half4(res / (Z * Z), 1.0);
+}
+
+// combine gaussianBlur_3 & gaussianBlur_3_2 (horizontal + vertical)
+[[ stitchable ]] half4 gaussianBlur_5(float2 pos, SwiftUI::Layer layer, float2 size, float radius) {
+    if (radius >= 1.0) {
+        float2 uv = size/pos;
+        half4 A = half4(0.0);
+        half4 C = half4(0.0);
+
+        float height = 1.0 / uv.y;
+        float width = 1.0 / uv.x;
+
+        float divisor = 0.0;
+        float weight = 0.0;
+        
+        float radiusMultiplier = 1.0 / radius;
+        
+        for (float x = -radius; x <= radius; x++) {
+            A = layer.sample(pos + float2(x * width, x * height));
+            
+            weight = SCurve(1.0 - (abs(x) * radiusMultiplier));
+            
+            C += A * (width + height) / 2;
+            
+            divisor += (width + height) / 2;
+        }
+
+        return half4(C.r / divisor, C.g / divisor, C.b / divisor, 1.0);
+    }
+    
+    return layer.sample(pos);
 }
